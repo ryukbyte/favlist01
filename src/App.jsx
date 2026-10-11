@@ -13,7 +13,7 @@ import FavouriteStudents from "./pages/FavouriteStudents";
 function App() {
   return (
     <StudentProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <div className="app">
           <nav className="navbar">
             <Link to="/" className="brand">
@@ -35,6 +35,11 @@ function App() {
             <Route
               path="/favourites"
               element={<FavouriteStudents />}
+            />
+
+            <Route
+              path="*"
+              element={<StudentList />}
             />
           </Routes>
 
